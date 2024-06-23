@@ -1,0 +1,77 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "file_handler",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "test_fix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_fix-Debug-6ec476573b50db472446.json",
+					"name" : "test_fix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_insert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_insert-Debug-74a6be2c9ca09eee279c.json",
+					"name" : "test_insert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_remove::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_remove-Debug-5bccac4328eda09837bf.json",
+					"name" : "test_remove",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ndp/Documents/FileHandler/build",
+		"source" : "/home/ndp/Documents/FileHandler"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

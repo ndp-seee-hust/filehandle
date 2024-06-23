@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/test_remove.dir/test/test_remove.c.o CMakeFiles/test_remove.dir/src/file_utils.c.o  -o test_remove 

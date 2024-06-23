@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_fix.dir/test/test_fix.c.o   -c /home/ndp/Documents/FileHandler/test/test_fix.c",
+  "file": "/home/ndp/Documents/FileHandler/test/test_fix.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_fix.dir/src/file_utils.c.o   -c /home/ndp/Documents/FileHandler/src/file_utils.c",
+  "file": "/home/ndp/Documents/FileHandler/src/file_utils.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_remove.dir/test/test_remove.c.o   -c /home/ndp/Documents/FileHandler/test/test_remove.c",
+  "file": "/home/ndp/Documents/FileHandler/test/test_remove.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_remove.dir/src/file_utils.c.o   -c /home/ndp/Documents/FileHandler/src/file_utils.c",
+  "file": "/home/ndp/Documents/FileHandler/src/file_utils.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_insert.dir/test/test_insert.c.o   -c /home/ndp/Documents/FileHandler/test/test_insert.c",
+  "file": "/home/ndp/Documents/FileHandler/test/test_insert.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_insert.dir/src/file_utils.c.o   -c /home/ndp/Documents/FileHandler/src/file_utils.c",
+  "file": "/home/ndp/Documents/FileHandler/src/file_utils.c"
+}
+]

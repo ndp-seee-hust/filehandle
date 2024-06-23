@@ -1,0 +1,5 @@
+/home/ndp/Documents/FileHandler/build/CMakeFiles/edit_cache.dir
+/home/ndp/Documents/FileHandler/build/CMakeFiles/rebuild_cache.dir
+/home/ndp/Documents/FileHandler/build/CMakeFiles/test_fix.dir
+/home/ndp/Documents/FileHandler/build/CMakeFiles/test_remove.dir
+/home/ndp/Documents/FileHandler/build/CMakeFiles/test_insert.dir

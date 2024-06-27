@@ -4,6 +4,12 @@
 CMakeFiles/test_insert.dir/src/file_utils.c.o: ../include/file_utils.h
 CMakeFiles/test_insert.dir/src/file_utils.c.o: ../src/file_utils.c
 
-CMakeFiles/test_insert.dir/test/test_insert.c.o: ../include/file_utils.h
-CMakeFiles/test_insert.dir/test/test_insert.c.o: ../test/test_insert.c
+CMakeFiles/test_insert.dir/src/unity.c.o: ../include/unity.h
+CMakeFiles/test_insert.dir/src/unity.c.o: ../include/unity_internals.h
+CMakeFiles/test_insert.dir/src/unity.c.o: ../src/unity.c
+
+CMakeFiles/test_insert.dir/unit_test/test_insert.c.o: ../include/file_utils.h
+CMakeFiles/test_insert.dir/unit_test/test_insert.c.o: ../include/unity.h
+CMakeFiles/test_insert.dir/unit_test/test_insert.c.o: ../include/unity_internals.h
+CMakeFiles/test_insert.dir/unit_test/test_insert.c.o: ../unit_test/test_insert.c
 

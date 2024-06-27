@@ -78,12 +78,12 @@ clean: CMakeFiles/test_insert.dir/clean
 CMakeFiles/test_fix.dir/all:
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/depend
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=1,2,3 "Built target test_fix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=1,2,3,4 "Built target test_fix"
 .PHONY : CMakeFiles/test_fix.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_fix.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_fix.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_fix.dir/rule
@@ -105,12 +105,12 @@ CMakeFiles/test_fix.dir/clean:
 CMakeFiles/test_remove.dir/all:
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/depend
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=7,8,9 "Built target test_remove"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=9,10,11,12 "Built target test_remove"
 .PHONY : CMakeFiles/test_remove.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_remove.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_remove.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_remove.dir/rule
@@ -132,12 +132,12 @@ CMakeFiles/test_remove.dir/clean:
 CMakeFiles/test_insert.dir/all:
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/depend
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=4,5,6 "Built target test_insert"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=5,6,7,8 "Built target test_insert"
 .PHONY : CMakeFiles/test_insert.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_insert.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_insert.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_insert.dir/rule

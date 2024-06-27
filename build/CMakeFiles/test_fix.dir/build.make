@@ -57,18 +57,18 @@ include CMakeFiles/test_fix.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/test_fix.dir/flags.make
 
-CMakeFiles/test_fix.dir/test/test_fix.c.o: CMakeFiles/test_fix.dir/flags.make
-CMakeFiles/test_fix.dir/test/test_fix.c.o: ../test/test_fix.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_fix.dir/test/test_fix.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_fix.dir/test/test_fix.c.o   -c /home/ndp/Documents/FileHandler/test/test_fix.c
+CMakeFiles/test_fix.dir/unit_test/test_fix.c.o: CMakeFiles/test_fix.dir/flags.make
+CMakeFiles/test_fix.dir/unit_test/test_fix.c.o: ../unit_test/test_fix.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_fix.dir/unit_test/test_fix.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_fix.dir/unit_test/test_fix.c.o   -c /home/ndp/Documents/FileHandler/unit_test/test_fix.c
 
-CMakeFiles/test_fix.dir/test/test_fix.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_fix.dir/test/test_fix.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ndp/Documents/FileHandler/test/test_fix.c > CMakeFiles/test_fix.dir/test/test_fix.c.i
+CMakeFiles/test_fix.dir/unit_test/test_fix.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_fix.dir/unit_test/test_fix.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ndp/Documents/FileHandler/unit_test/test_fix.c > CMakeFiles/test_fix.dir/unit_test/test_fix.c.i
 
-CMakeFiles/test_fix.dir/test/test_fix.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_fix.dir/test/test_fix.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ndp/Documents/FileHandler/test/test_fix.c -o CMakeFiles/test_fix.dir/test/test_fix.c.s
+CMakeFiles/test_fix.dir/unit_test/test_fix.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_fix.dir/unit_test/test_fix.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ndp/Documents/FileHandler/unit_test/test_fix.c -o CMakeFiles/test_fix.dir/unit_test/test_fix.c.s
 
 CMakeFiles/test_fix.dir/src/file_utils.c.o: CMakeFiles/test_fix.dir/flags.make
 CMakeFiles/test_fix.dir/src/file_utils.c.o: ../src/file_utils.c
@@ -83,19 +83,34 @@ CMakeFiles/test_fix.dir/src/file_utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_fix.dir/src/file_utils.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ndp/Documents/FileHandler/src/file_utils.c -o CMakeFiles/test_fix.dir/src/file_utils.c.s
 
+CMakeFiles/test_fix.dir/src/unity.c.o: CMakeFiles/test_fix.dir/flags.make
+CMakeFiles/test_fix.dir/src/unity.c.o: ../src/unity.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/test_fix.dir/src/unity.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_fix.dir/src/unity.c.o   -c /home/ndp/Documents/FileHandler/src/unity.c
+
+CMakeFiles/test_fix.dir/src/unity.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_fix.dir/src/unity.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ndp/Documents/FileHandler/src/unity.c > CMakeFiles/test_fix.dir/src/unity.c.i
+
+CMakeFiles/test_fix.dir/src/unity.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_fix.dir/src/unity.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ndp/Documents/FileHandler/src/unity.c -o CMakeFiles/test_fix.dir/src/unity.c.s
+
 # Object files for target test_fix
 test_fix_OBJECTS = \
-"CMakeFiles/test_fix.dir/test/test_fix.c.o" \
-"CMakeFiles/test_fix.dir/src/file_utils.c.o"
+"CMakeFiles/test_fix.dir/unit_test/test_fix.c.o" \
+"CMakeFiles/test_fix.dir/src/file_utils.c.o" \
+"CMakeFiles/test_fix.dir/src/unity.c.o"
 
 # External object files for target test_fix
 test_fix_EXTERNAL_OBJECTS =
 
-test_fix: CMakeFiles/test_fix.dir/test/test_fix.c.o
+test_fix: CMakeFiles/test_fix.dir/unit_test/test_fix.c.o
 test_fix: CMakeFiles/test_fix.dir/src/file_utils.c.o
+test_fix: CMakeFiles/test_fix.dir/src/unity.c.o
 test_fix: CMakeFiles/test_fix.dir/build.make
 test_fix: CMakeFiles/test_fix.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable test_fix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable test_fix"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_fix.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

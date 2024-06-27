@@ -182,86 +182,119 @@ src/file_utils.c.s:
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/file_utils.c.s
 .PHONY : src/file_utils.c.s
 
-test/test_fix.o: test/test_fix.c.o
+src/unity.o: src/unity.c.o
 
-.PHONY : test/test_fix.o
-
-# target to build an object file
-test/test_fix.c.o:
-	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/test/test_fix.c.o
-.PHONY : test/test_fix.c.o
-
-test/test_fix.i: test/test_fix.c.i
-
-.PHONY : test/test_fix.i
-
-# target to preprocess a source file
-test/test_fix.c.i:
-	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/test/test_fix.c.i
-.PHONY : test/test_fix.c.i
-
-test/test_fix.s: test/test_fix.c.s
-
-.PHONY : test/test_fix.s
-
-# target to generate assembly for a file
-test/test_fix.c.s:
-	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/test/test_fix.c.s
-.PHONY : test/test_fix.c.s
-
-test/test_insert.o: test/test_insert.c.o
-
-.PHONY : test/test_insert.o
+.PHONY : src/unity.o
 
 # target to build an object file
-test/test_insert.c.o:
-	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/test/test_insert.c.o
-.PHONY : test/test_insert.c.o
+src/unity.c.o:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/unity.c.o
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/unity.c.o
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/unity.c.o
+.PHONY : src/unity.c.o
 
-test/test_insert.i: test/test_insert.c.i
+src/unity.i: src/unity.c.i
 
-.PHONY : test/test_insert.i
+.PHONY : src/unity.i
 
 # target to preprocess a source file
-test/test_insert.c.i:
-	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/test/test_insert.c.i
-.PHONY : test/test_insert.c.i
+src/unity.c.i:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/unity.c.i
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/unity.c.i
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/unity.c.i
+.PHONY : src/unity.c.i
 
-test/test_insert.s: test/test_insert.c.s
+src/unity.s: src/unity.c.s
 
-.PHONY : test/test_insert.s
+.PHONY : src/unity.s
 
 # target to generate assembly for a file
-test/test_insert.c.s:
-	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/test/test_insert.c.s
-.PHONY : test/test_insert.c.s
+src/unity.c.s:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/unity.c.s
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/unity.c.s
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/unity.c.s
+.PHONY : src/unity.c.s
 
-test/test_remove.o: test/test_remove.c.o
+unit_test/test_fix.o: unit_test/test_fix.c.o
 
-.PHONY : test/test_remove.o
+.PHONY : unit_test/test_fix.o
 
 # target to build an object file
-test/test_remove.c.o:
-	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/test/test_remove.c.o
-.PHONY : test/test_remove.c.o
+unit_test/test_fix.c.o:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/unit_test/test_fix.c.o
+.PHONY : unit_test/test_fix.c.o
 
-test/test_remove.i: test/test_remove.c.i
+unit_test/test_fix.i: unit_test/test_fix.c.i
 
-.PHONY : test/test_remove.i
+.PHONY : unit_test/test_fix.i
 
 # target to preprocess a source file
-test/test_remove.c.i:
-	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/test/test_remove.c.i
-.PHONY : test/test_remove.c.i
+unit_test/test_fix.c.i:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/unit_test/test_fix.c.i
+.PHONY : unit_test/test_fix.c.i
 
-test/test_remove.s: test/test_remove.c.s
+unit_test/test_fix.s: unit_test/test_fix.c.s
 
-.PHONY : test/test_remove.s
+.PHONY : unit_test/test_fix.s
 
 # target to generate assembly for a file
-test/test_remove.c.s:
-	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/test/test_remove.c.s
-.PHONY : test/test_remove.c.s
+unit_test/test_fix.c.s:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/unit_test/test_fix.c.s
+.PHONY : unit_test/test_fix.c.s
+
+unit_test/test_insert.o: unit_test/test_insert.c.o
+
+.PHONY : unit_test/test_insert.o
+
+# target to build an object file
+unit_test/test_insert.c.o:
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/unit_test/test_insert.c.o
+.PHONY : unit_test/test_insert.c.o
+
+unit_test/test_insert.i: unit_test/test_insert.c.i
+
+.PHONY : unit_test/test_insert.i
+
+# target to preprocess a source file
+unit_test/test_insert.c.i:
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/unit_test/test_insert.c.i
+.PHONY : unit_test/test_insert.c.i
+
+unit_test/test_insert.s: unit_test/test_insert.c.s
+
+.PHONY : unit_test/test_insert.s
+
+# target to generate assembly for a file
+unit_test/test_insert.c.s:
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/unit_test/test_insert.c.s
+.PHONY : unit_test/test_insert.c.s
+
+unit_test/test_remove.o: unit_test/test_remove.c.o
+
+.PHONY : unit_test/test_remove.o
+
+# target to build an object file
+unit_test/test_remove.c.o:
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/unit_test/test_remove.c.o
+.PHONY : unit_test/test_remove.c.o
+
+unit_test/test_remove.i: unit_test/test_remove.c.i
+
+.PHONY : unit_test/test_remove.i
+
+# target to preprocess a source file
+unit_test/test_remove.c.i:
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/unit_test/test_remove.c.i
+.PHONY : unit_test/test_remove.c.i
+
+unit_test/test_remove.s: unit_test/test_remove.c.s
+
+.PHONY : unit_test/test_remove.s
+
+# target to generate assembly for a file
+unit_test/test_remove.c.s:
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/unit_test/test_remove.c.s
+.PHONY : unit_test/test_remove.c.s
 
 # Help Target
 help:
@@ -277,15 +310,18 @@ help:
 	@echo "... src/file_utils.o"
 	@echo "... src/file_utils.i"
 	@echo "... src/file_utils.s"
-	@echo "... test/test_fix.o"
-	@echo "... test/test_fix.i"
-	@echo "... test/test_fix.s"
-	@echo "... test/test_insert.o"
-	@echo "... test/test_insert.i"
-	@echo "... test/test_insert.s"
-	@echo "... test/test_remove.o"
-	@echo "... test/test_remove.i"
-	@echo "... test/test_remove.s"
+	@echo "... src/unity.o"
+	@echo "... src/unity.i"
+	@echo "... src/unity.s"
+	@echo "... unit_test/test_fix.o"
+	@echo "... unit_test/test_fix.i"
+	@echo "... unit_test/test_fix.s"
+	@echo "... unit_test/test_insert.o"
+	@echo "... unit_test/test_insert.i"
+	@echo "... unit_test/test_insert.s"
+	@echo "... unit_test/test_remove.o"
+	@echo "... unit_test/test_remove.i"
+	@echo "... unit_test/test_remove.s"
 .PHONY : help
 
 

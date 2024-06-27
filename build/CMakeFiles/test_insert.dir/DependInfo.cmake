@@ -5,7 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/ndp/Documents/FileHandler/src/file_utils.c" "/home/ndp/Documents/FileHandler/build/CMakeFiles/test_insert.dir/src/file_utils.c.o"
-  "/home/ndp/Documents/FileHandler/test/test_insert.c" "/home/ndp/Documents/FileHandler/build/CMakeFiles/test_insert.dir/test/test_insert.c.o"
+  "/home/ndp/Documents/FileHandler/src/unity.c" "/home/ndp/Documents/FileHandler/build/CMakeFiles/test_insert.dir/src/unity.c.o"
+  "/home/ndp/Documents/FileHandler/unit_test/test_insert.c" "/home/ndp/Documents/FileHandler/build/CMakeFiles/test_insert.dir/unit_test/test_insert.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

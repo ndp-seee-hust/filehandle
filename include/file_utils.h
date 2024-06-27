@@ -15,6 +15,9 @@ int finsert_line(char* filename, int line_num, const char *buffer);
 int fremove_line(char* filename, int line_num);
 int ffix_line(char* filename, int line_num, const char *buffer);
 
+int mmap_finsert_line(char* filename, int line_num, const char *buffer);
+int mmap_fremove_line(char* filename, int line_num);
+int mmap_ffix_line(char* filename, int line_num, const char *buffer);
 
 #ifdef __cplusplus
 }

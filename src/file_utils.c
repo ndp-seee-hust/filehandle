@@ -3,11 +3,36 @@
 #include <string.h>
 #include <stdint.h>
 #include <unistd.h>
+#include <sys/resource.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
 #include "file_utils.h"
 
+#define BUFFER_DATA_MOVE 1024
 
 int finsert_line(char* filename, int line_num, const char *buffer)
 {
+
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+    
+    if (buffer == NULL)
+    {
+        fprintf(stderr, "Error: buffer is NULL\n");
+        return -1;
+    }
+   
     FILE *file = fopen(filename, "r+");
     if (!file)
     {
@@ -16,9 +41,10 @@ int finsert_line(char* filename, int line_num, const char *buffer)
     }
 
     int current_line = 1;
-    long int insert_pos = 0;
+    long insert_pos = 0;
     char ch;
-
+    char move_buffer[BUFFER_DATA_MOVE];
+    
     while (current_line < line_num && (ch = fgetc(file)) != EOF)
     {
         if (ch == '\n')
@@ -38,16 +64,14 @@ int finsert_line(char* filename, int line_num, const char *buffer)
     fseek(file, insert_pos, SEEK_SET);
 
 
-    long int total_left_to_move = 0;
+    long total_left_to_move = 0;
     while (fgetc(file) != EOF) 
     {
         total_left_to_move++;
     }
     fseek(file, insert_pos, SEEK_SET);
-    printf("%ld\n", total_left_to_move);
     
-    char move_buffer[1024];
-    long int ammount_to_grow = strlen(buffer); 
+    long ammount_to_grow = strlen(buffer); 
     if (ammount_to_grow >= sizeof(move_buffer))
     {
         fclose(file);
@@ -69,7 +93,7 @@ int finsert_line(char* filename, int line_num, const char *buffer)
             ammount_to_move = total_left_to_move;
         } 
 
-        long int read_pos = insert_pos + total_left_to_move - ammount_to_move;
+        long read_pos = insert_pos + total_left_to_move - ammount_to_move;
 
         fseek(file, read_pos, SEEK_SET);
         fread(move_buffer, ammount_to_move, 1, file);
@@ -112,6 +136,18 @@ int finsert_line(char* filename, int line_num, const char *buffer)
 
 int fremove_line(char* filename, int line_num)
 {
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+    
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+    
     FILE *file = fopen(filename, "r+");
     if (!file)
     {
@@ -120,9 +156,10 @@ int fremove_line(char* filename, int line_num)
     }
 
     int current_line = 1;
-    long int line_start = 0;
-    long int line_end = 0;
+    long line_start = 0;
+    long line_end = 0;
     char ch;
+    char move_buffer[BUFFER_DATA_MOVE];
 
     while (current_line < line_num && (ch = fgetc(file)) != EOF)
     {
@@ -153,10 +190,9 @@ int fremove_line(char* filename, int line_num)
     }
 
     fseek(file, 0, SEEK_END);
-    long int total_left_to_move = ftell(file) - line_end;
+    long total_left_to_move = ftell(file) - line_end;
     fseek(file, line_end, SEEK_SET);
 
-    char move_buffer[1024];
 
     for (;;)
     {
@@ -166,7 +202,7 @@ int fremove_line(char* filename, int line_num)
             ammount_to_move = total_left_to_move;
         }
 
-        long int read_pos = line_end + total_left_to_move - ammount_to_move;
+        long read_pos = line_end + total_left_to_move - ammount_to_move;
        
         fseek(file, read_pos, SEEK_SET);
         fread(move_buffer, ammount_to_move, 1, file);
@@ -189,7 +225,7 @@ int fremove_line(char* filename, int line_num)
     }
 
     fseek(file, 0, SEEK_END);
-    long int new_file_size = ftell(file) - (line_end - line_start);
+    long new_file_size = ftell(file) - (line_end - line_start);
     ftruncate(fileno(file), new_file_size);
 
     fclose(file);
@@ -198,6 +234,24 @@ int fremove_line(char* filename, int line_num)
 
 int ffix_line(char* filename, int line_num, const char *buffer)
 {
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+    
+    if (buffer == NULL)
+    {
+        fprintf(stderr, "Error: buffer is NULL\n");
+        return -1;
+    }
+
     FILE *file = fopen(filename, "r+");
     if (!file)
     {
@@ -206,10 +260,11 @@ int ffix_line(char* filename, int line_num, const char *buffer)
     }
 
     int current_line = 1;
-    long int line_start = 0;
-    long int line_end = 0;
+    long line_start = 0;
+    long line_end = 0;
     char ch;
-
+    char move_buffer[BUFFER_DATA_MOVE];
+    
     while (current_line < line_num && (ch = fgetc(file)) != EOF)
     {
         if (ch == '\n')
@@ -238,16 +293,15 @@ int ffix_line(char* filename, int line_num, const char *buffer)
         line_end = ftell(file); 
     }
 
-    long int old_line_length = line_end - line_start;
-    long int new_line_length = strlen(buffer);
-    long int length_difference = new_line_length - old_line_length;
+    long old_line_length = line_end - line_start;
+    long new_line_length = strlen(buffer);
+    long length_difference = new_line_length - old_line_length;
 
     
     fseek(file, 0, SEEK_END);
-    long int total_left_to_move = ftell(file) - line_end;
+    long total_left_to_move = ftell(file) - line_end;
     fseek(file, line_end, SEEK_SET);
 
-    char move_buffer[1024];
     length_difference = length_difference + 1;
 
     if (length_difference != 0)
@@ -260,7 +314,7 @@ int ffix_line(char* filename, int line_num, const char *buffer)
                 ammount_to_move = total_left_to_move;
             }
 
-            long int read_pos = line_end + total_left_to_move - ammount_to_move;
+            long read_pos = line_end + total_left_to_move - ammount_to_move;
 
             fseek(file, read_pos, SEEK_SET);
             fread(move_buffer, ammount_to_move, 1, file);
@@ -301,10 +355,318 @@ int ffix_line(char* filename, int line_num, const char *buffer)
     if (length_difference < 0)
     {
         fseek(file, 0, SEEK_END);
-        long int new_file_size = ftell(file) + length_difference;
+        long new_file_size = ftell(file) + length_difference;
         ftruncate(fileno(file), new_file_size);
     }
 
     fclose(file);
+    return 0;
+}
+
+int mmap_finsert_line(char* filename, int line_num, const char *buffer)
+{
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+
+    if (buffer == NULL)
+    {
+        fprintf(stderr, "Error: buffer is NULL\n");
+        return -1;
+    }
+    
+    int fd;
+    struct stat sb;
+    char *file_contents;
+    size_t file_size;
+    int current_line = 1;
+    off_t insert_pos = 0;
+    long total_left_to_move = 0;
+    size_t amount_to_grow = strlen(buffer);
+
+
+
+    fd = open(filename, O_RDWR);
+    if (fd == -1) 
+    {
+        perror("Error opening file");
+        return -1;
+    }
+
+    if (fstat(fd, &sb) == -1) 
+    {
+        perror("fstat");
+        close(fd);
+        return -1;
+    }
+
+    file_size = sb.st_size;
+
+    file_contents = mmap(NULL, file_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    if (file_contents == MAP_FAILED) 
+    {
+        perror("mmap");
+        close(fd);
+        return -1;
+    }
+
+    for (off_t i = 0; i < file_size; ++i) 
+    {
+        if (file_contents[i] == '\n') 
+        {
+            ++current_line;
+            insert_pos = i + 1;
+        }
+        if (current_line == line_num)
+            break;
+    }
+
+    if (current_line < line_num) 
+    {
+        munmap(file_contents, file_size);
+        close(fd);
+        return -1;
+    }
+
+    total_left_to_move = file_size - insert_pos;
+
+    memmove(file_contents + insert_pos + amount_to_grow + 1, file_contents + insert_pos, total_left_to_move);
+
+    memcpy(file_contents + insert_pos, buffer, amount_to_grow);
+    file_contents[insert_pos + amount_to_grow] = '\n';
+
+    if (munmap(file_contents, file_size) == -1) 
+    {
+        perror("munmap");
+        close(fd);
+        return -1;
+    }
+
+    close(fd);
+    return 0;
+}
+
+int mmap_fremove_line(char* filename, int line_num)
+{
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+
+    int fd = open(filename, O_RDWR);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        return -1;
+    }
+
+    struct stat sb;
+    if (fstat(fd, &sb) == -1)
+    {
+        perror("Error getting the file size");
+        close(fd);
+        return -1;
+    }
+    size_t length = sb.st_size;
+
+    char *file_content = mmap(NULL, length, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    if (file_content == MAP_FAILED)
+    {
+        perror("Error mapping the file");
+        close(fd);
+        return -1;
+    }
+
+    int current_line = 1;
+    long line_start = 0;
+    long line_end = 0;
+
+    for (size_t i = 0; i < length; i++)
+    {
+        if (current_line == line_num)
+        {
+            if (line_start == 0)
+            {
+                line_start = i;
+            }
+            if (file_content[i] == '\n' || i == length - 1)
+            {
+                line_end = i + 1;
+                break;
+            }
+        }
+        if (file_content[i] == '\n')
+        {
+            current_line++;
+        }
+    }
+
+    if (current_line < line_num)
+    {
+        munmap(file_content, length);
+        close(fd);
+        return -1;
+    }
+
+    size_t new_length = length - (line_end - line_start);
+
+    memmove(&file_content[line_start], &file_content[line_end], length - line_end);
+
+    if (ftruncate(fd, new_length) == -1)
+    {
+        perror("Error truncating the file");
+        munmap(file_content, length);
+        close(fd);
+        return -1;
+    }
+
+    if (munmap(file_content, length) == -1)
+    {
+        perror("Error unmapping the file");
+    }
+    close(fd);
+    return 0;
+}
+
+int mmap_ffix_line(char* filename, int line_num, const char *buffer)
+{
+    
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+    if (buffer == NULL)
+    {
+        fprintf(stderr, "Error: buffer is NULL\n");
+        return -1;
+    }
+
+   
+    int fd = open(filename, O_RDWR);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        return -1;
+    }
+
+    struct stat sb;
+    if (fstat(fd, &sb) == -1)
+    {
+        perror("Error getting the file size");
+        close(fd);
+        return -1;
+    }
+    size_t length = sb.st_size;
+
+    char *file_content = mmap(NULL, length, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    if (file_content == MAP_FAILED)
+    {
+        perror("Error mapping the file");
+        close(fd);
+        return -1;
+    }
+
+    int current_line = 1;
+    long line_start = 0;
+    long line_end = 0;
+
+    for (size_t i = 0; i < length; i++)
+    {
+        if (current_line == line_num)
+        {
+            if (line_start == 0)
+            {
+                line_start = i;
+            }
+            if (file_content[i] == '\n' || i == length - 1)
+            {
+                line_end = i + 1;
+                break;
+            }
+        }
+        if (file_content[i] == '\n')
+        {
+            current_line++;
+        }
+    }
+
+    if (current_line < line_num)
+    {
+        munmap(file_content, length);
+        close(fd);
+        return -1;
+    }
+
+    long old_line_length = line_end - line_start;
+    long new_line_length = strlen(buffer) + 1;
+    long length_difference = new_line_length - old_line_length;
+
+    if (length_difference > 0)
+    {
+    
+        if (ftruncate(fd, length + length_difference) == -1)
+        {
+            perror("Error extending the file");
+            munmap(file_content, length);
+            close(fd);
+            return -1;
+        }
+
+        munmap(file_content, length);
+        length += length_difference;
+        file_content = mmap(NULL, length, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+        if (file_content == MAP_FAILED)
+        {
+            perror("Error remapping the file");
+            close(fd);
+            return -1;
+        }
+    }
+
+    if (length_difference != 0)
+    {
+        memmove(&file_content[line_start + new_line_length], &file_content[line_end], length - line_end - length_difference);
+    }
+
+    memcpy(&file_content[line_start], buffer, strlen(buffer));
+    file_content[line_start + strlen(buffer)] = '\n';
+
+    if (length_difference < 0)
+    {
+        if (ftruncate(fd, length + length_difference) == -1)
+        {
+            perror("Error truncating the file");
+            munmap(file_content, length);
+            close(fd);
+            return -1;
+        }
+    }
+
+    if (munmap(file_content, length) == -1)
+    {
+        perror("Error unmapping the file");
+    }
+    close(fd);
     return 0;
 }

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_insert.dir/src/file_utils.c.o"
-  "CMakeFiles/test_insert.dir/test/test_insert.c.o"
+  "CMakeFiles/test_insert.dir/src/unity.c.o"
+  "CMakeFiles/test_insert.dir/unit_test/test_insert.c.o"
   "test_insert"
   "test_insert.pdb"
 )

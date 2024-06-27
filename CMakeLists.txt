@@ -13,6 +13,7 @@ set(SOURCE_FILES
     test/test_fix.c
 )
 
-add_executable(test_insert test/test_insert.c src/file_utils.c)
-add_executable(test_fix test/test_fix.c src/file_utils.c)
-add_executable(test_remove test/test_remove.c src/file_utils.c)
+
+add_executable(test_insert unit_test/test_insert.c src/file_utils.c src/unity.c)
+add_executable(test_remove unit_test/test_remove.c src/file_utils.c src/unity.c)
+add_executable(test_fix unit_test/test_fix.c src/file_utils.c src/unity.c)

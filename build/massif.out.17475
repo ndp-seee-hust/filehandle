@@ -1,0 +1,78 @@
+desc: (none)
+cmd: ./test_insert
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=187780
+mem_heap_B=472
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=188380
+mem_heap_B=4568
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=178395019
+mem_heap_B=4568
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=peak
+n2: 4568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 4096 0x48FFD03: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 4096 0x490FECF: _IO_doallocbuf (genops.c:347)
+   n1: 4096 0x490ECA3: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:486)
+    n1: 4096 0x490FF85: _IO_default_uflow (genops.c:362)
+     n1: 4096 0x109518: finsert_line (file_utils.c:30)
+      n0: 4096 0x109466: main (test_insert.c:17)
+ n1: 472 0x490092D: __fopen_internal (iofopen.c:65)
+  n1: 472 0x490092D: fopen@@GLIBC_2.2.5 (iofopen.c:86)
+   n1: 472 0x1094B8: finsert_line (file_utils.c:19)
+    n0: 472 0x109466: main (test_insert.c:17)
+#-----------
+snapshot=4
+#-----------
+time=178395019
+mem_heap_B=472
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=178395152
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=178395388
+mem_heap_B=1024
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=178400281
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

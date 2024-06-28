@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/test_get_line_content.dir/unit_test/test_get_line_content.c.o CMakeFiles/test_get_line_content.dir/src/filehandle.c.o CMakeFiles/test_get_line_content.dir/src/unity.c.o  -o test_get_line_content 

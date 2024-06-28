@@ -55,13 +55,13 @@ int filehandle_get_line_content(const char *filename, int line_num, char *line_c
         fprintf(stderr, "Error: filename is NULL\n");
         return -1;
     }
-
+    
     if (line_num <= 0)
     {
         fprintf(stderr, "Error: line_num must be greater than 0\n");
         return -1;
     }
-
+    
     FILE *file = fopen(filename, "r");
     if (!file)
     {
@@ -77,7 +77,7 @@ int filehandle_get_line_content(const char *filename, int line_num, char *line_c
     }
 
     int total_lines = filehandle_get_total_lines(filename);
-
+   
     if(line_num > total_lines)
     {
         return -1;
@@ -94,7 +94,6 @@ int filehandle_get_line_content(const char *filename, int line_num, char *line_c
         }
         current_line++;
     }
-
     fclose(file);
     return 0;
 }

@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_get_line_content
+
+# Build rule for target.
+test_get_line_content: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_get_line_content
+.PHONY : test_get_line_content
+
+# fast build rule for target.
+test_get_line_content/fast:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/build
+.PHONY : test_get_line_content/fast
+
+#=============================================================================
+# Target rules for targets named test_get_total_lines
+
+# Build rule for target.
+test_get_total_lines: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_get_total_lines
+.PHONY : test_get_total_lines
+
+# fast build rule for target.
+test_get_total_lines/fast:
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/build
+.PHONY : test_get_total_lines/fast
+
+#=============================================================================
 # Target rules for targets named test_fix
 
 # Build rule for target.
@@ -168,6 +194,8 @@ src/filehandle.o: src/filehandle.c.o
 
 # target to build an object file
 src/filehandle.c.o:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/src/filehandle.c.o
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/src/filehandle.c.o
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/filehandle.c.o
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/filehandle.c.o
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/filehandle.c.o
@@ -180,6 +208,8 @@ src/filehandle.i: src/filehandle.c.i
 
 # target to preprocess a source file
 src/filehandle.c.i:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/src/filehandle.c.i
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/src/filehandle.c.i
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/filehandle.c.i
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/filehandle.c.i
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/filehandle.c.i
@@ -192,6 +222,8 @@ src/filehandle.s: src/filehandle.c.s
 
 # target to generate assembly for a file
 src/filehandle.c.s:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/src/filehandle.c.s
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/src/filehandle.c.s
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/filehandle.c.s
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/filehandle.c.s
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/filehandle.c.s
@@ -204,6 +236,8 @@ src/unity.o: src/unity.c.o
 
 # target to build an object file
 src/unity.c.o:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/src/unity.c.o
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/src/unity.c.o
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/unity.c.o
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/unity.c.o
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/unity.c.o
@@ -215,6 +249,8 @@ src/unity.i: src/unity.c.i
 
 # target to preprocess a source file
 src/unity.c.i:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/src/unity.c.i
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/src/unity.c.i
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/unity.c.i
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/unity.c.i
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/unity.c.i
@@ -226,6 +262,8 @@ src/unity.s: src/unity.c.s
 
 # target to generate assembly for a file
 src/unity.c.s:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/src/unity.c.s
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/src/unity.c.s
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/unity.c.s
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/unity.c.s
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/unity.c.s
@@ -284,6 +322,60 @@ unit_test/test_fix.s: unit_test/test_fix.c.s
 unit_test/test_fix.c.s:
 	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/unit_test/test_fix.c.s
 .PHONY : unit_test/test_fix.c.s
+
+unit_test/test_get_line_content.o: unit_test/test_get_line_content.c.o
+
+.PHONY : unit_test/test_get_line_content.o
+
+# target to build an object file
+unit_test/test_get_line_content.c.o:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/unit_test/test_get_line_content.c.o
+.PHONY : unit_test/test_get_line_content.c.o
+
+unit_test/test_get_line_content.i: unit_test/test_get_line_content.c.i
+
+.PHONY : unit_test/test_get_line_content.i
+
+# target to preprocess a source file
+unit_test/test_get_line_content.c.i:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/unit_test/test_get_line_content.c.i
+.PHONY : unit_test/test_get_line_content.c.i
+
+unit_test/test_get_line_content.s: unit_test/test_get_line_content.c.s
+
+.PHONY : unit_test/test_get_line_content.s
+
+# target to generate assembly for a file
+unit_test/test_get_line_content.c.s:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/unit_test/test_get_line_content.c.s
+.PHONY : unit_test/test_get_line_content.c.s
+
+unit_test/test_get_total_lines.o: unit_test/test_get_total_lines.c.o
+
+.PHONY : unit_test/test_get_total_lines.o
+
+# target to build an object file
+unit_test/test_get_total_lines.c.o:
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/unit_test/test_get_total_lines.c.o
+.PHONY : unit_test/test_get_total_lines.c.o
+
+unit_test/test_get_total_lines.i: unit_test/test_get_total_lines.c.i
+
+.PHONY : unit_test/test_get_total_lines.i
+
+# target to preprocess a source file
+unit_test/test_get_total_lines.c.i:
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/unit_test/test_get_total_lines.c.i
+.PHONY : unit_test/test_get_total_lines.c.i
+
+unit_test/test_get_total_lines.s: unit_test/test_get_total_lines.c.s
+
+.PHONY : unit_test/test_get_total_lines.s
+
+# target to generate assembly for a file
+unit_test/test_get_total_lines.c.s:
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/unit_test/test_get_total_lines.c.s
+.PHONY : unit_test/test_get_total_lines.c.s
 
 unit_test/test_insert.o: unit_test/test_insert.c.o
 
@@ -345,6 +437,8 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test_get_line_content"
+	@echo "... test_get_total_lines"
 	@echo "... rebuild_cache"
 	@echo "... test_fix"
 	@echo "... test_remove"
@@ -363,6 +457,12 @@ help:
 	@echo "... unit_test/test_fix.o"
 	@echo "... unit_test/test_fix.i"
 	@echo "... unit_test/test_fix.s"
+	@echo "... unit_test/test_get_line_content.o"
+	@echo "... unit_test/test_get_line_content.i"
+	@echo "... unit_test/test_get_line_content.s"
+	@echo "... unit_test/test_get_total_lines.o"
+	@echo "... unit_test/test_get_total_lines.i"
+	@echo "... unit_test/test_get_total_lines.s"
 	@echo "... unit_test/test_insert.o"
 	@echo "... unit_test/test_insert.i"
 	@echo "... unit_test/test_insert.s"

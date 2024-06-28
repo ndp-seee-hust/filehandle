@@ -1,3 +1,5 @@
+/home/ndp/Documents/FileHandler/build/CMakeFiles/test_get_line_content.dir
+/home/ndp/Documents/FileHandler/build/CMakeFiles/test_get_total_lines.dir
 /home/ndp/Documents/FileHandler/build/CMakeFiles/rebuild_cache.dir
 /home/ndp/Documents/FileHandler/build/CMakeFiles/test_fix.dir
 /home/ndp/Documents/FileHandler/build/CMakeFiles/test_remove.dir

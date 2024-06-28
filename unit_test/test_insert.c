@@ -104,7 +104,6 @@ void test_ContentofLineAfterInsert(void)
             break;
         }
     }
-
     free(ContentofLine);
     TEST_ASSERT_EQUAL_INT(0, result);
     

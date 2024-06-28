@@ -1,6 +1,36 @@
 [
 {
   "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_get_line_content.dir/unit_test/test_get_line_content.c.o   -c /home/ndp/Documents/FileHandler/unit_test/test_get_line_content.c",
+  "file": "/home/ndp/Documents/FileHandler/unit_test/test_get_line_content.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_get_line_content.dir/src/filehandle.c.o   -c /home/ndp/Documents/FileHandler/src/filehandle.c",
+  "file": "/home/ndp/Documents/FileHandler/src/filehandle.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_get_line_content.dir/src/unity.c.o   -c /home/ndp/Documents/FileHandler/src/unity.c",
+  "file": "/home/ndp/Documents/FileHandler/src/unity.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_get_total_lines.dir/unit_test/test_get_total_lines.c.o   -c /home/ndp/Documents/FileHandler/unit_test/test_get_total_lines.c",
+  "file": "/home/ndp/Documents/FileHandler/unit_test/test_get_total_lines.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_get_total_lines.dir/src/filehandle.c.o   -c /home/ndp/Documents/FileHandler/src/filehandle.c",
+  "file": "/home/ndp/Documents/FileHandler/src/filehandle.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_get_total_lines.dir/src/unity.c.o   -c /home/ndp/Documents/FileHandler/src/unity.c",
+  "file": "/home/ndp/Documents/FileHandler/src/unity.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
   "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_fix.dir/unit_test/test_fix.c.o   -c /home/ndp/Documents/FileHandler/unit_test/test_fix.c",
   "file": "/home/ndp/Documents/FileHandler/unit_test/test_fix.c"
 },

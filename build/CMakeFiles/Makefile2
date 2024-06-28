@@ -53,6 +53,8 @@ CMAKE_BINARY_DIR = /home/ndp/Documents/FileHandler/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/test_get_line_content.dir/all
+all: CMakeFiles/test_get_total_lines.dir/all
 all: CMakeFiles/test_fix.dir/all
 all: CMakeFiles/test_remove.dir/all
 all: CMakeFiles/test_insert.dir/all
@@ -66,12 +68,68 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/test_get_line_content.dir/clean
+clean: CMakeFiles/test_get_total_lines.dir/clean
 clean: CMakeFiles/test_fix.dir/clean
 clean: CMakeFiles/test_remove.dir/clean
 clean: CMakeFiles/test_insert.dir/clean
 clean: CMakeFiles/test.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_get_line_content.dir
+
+# All Build rule for target.
+CMakeFiles/test_get_line_content.dir/all:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/depend
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=8,9,10,11 "Built target test_get_line_content"
+.PHONY : CMakeFiles/test_get_line_content.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_get_line_content.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_get_line_content.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_get_line_content.dir/rule
+
+# Convenience name for target.
+test_get_line_content: CMakeFiles/test_get_line_content.dir/rule
+
+.PHONY : test_get_line_content
+
+# clean rule for target.
+CMakeFiles/test_get_line_content.dir/clean:
+	$(MAKE) -f CMakeFiles/test_get_line_content.dir/build.make CMakeFiles/test_get_line_content.dir/clean
+.PHONY : CMakeFiles/test_get_line_content.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_get_total_lines.dir
+
+# All Build rule for target.
+CMakeFiles/test_get_total_lines.dir/all:
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/depend
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=12,13,14,15 "Built target test_get_total_lines"
+.PHONY : CMakeFiles/test_get_total_lines.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_get_total_lines.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_get_total_lines.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ndp/Documents/FileHandler/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_get_total_lines.dir/rule
+
+# Convenience name for target.
+test_get_total_lines: CMakeFiles/test_get_total_lines.dir/rule
+
+.PHONY : test_get_total_lines
+
+# clean rule for target.
+CMakeFiles/test_get_total_lines.dir/clean:
+	$(MAKE) -f CMakeFiles/test_get_total_lines.dir/build.make CMakeFiles/test_get_total_lines.dir/clean
+.PHONY : CMakeFiles/test_get_total_lines.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/test_fix.dir
@@ -107,7 +165,7 @@ CMakeFiles/test_fix.dir/clean:
 CMakeFiles/test_remove.dir/all:
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/depend
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=12,13,14,15 "Built target test_remove"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=20,21,22,23 "Built target test_remove"
 .PHONY : CMakeFiles/test_remove.dir/all
 
 # Build rule for subdir invocation for target.
@@ -134,7 +192,7 @@ CMakeFiles/test_remove.dir/clean:
 CMakeFiles/test_insert.dir/all:
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/depend
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=8,9,10,11 "Built target test_insert"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ndp/Documents/FileHandler/build/CMakeFiles --progress-num=16,17,18,19 "Built target test_insert"
 .PHONY : CMakeFiles/test_insert.dir/all
 
 # Build rule for subdir invocation for target.

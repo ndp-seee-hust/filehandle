@@ -1,0 +1,104 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "file_handler",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-0b21ac4ab6cae6b74792.json",
+					"name" : "test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_fix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_fix-Debug-07f172455aad71df832e.json",
+					"name" : "test_fix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_get_line_content::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_get_line_content-Debug-f2b8e10b3da83ca7635b.json",
+					"name" : "test_get_line_content",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_get_total_lines::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_get_total_lines-Debug-4bc51483656b09c6fe4b.json",
+					"name" : "test_get_total_lines",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_insert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_insert-Debug-39432d4485b5a4624b6e.json",
+					"name" : "test_insert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_remove::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_remove-Debug-578d90f41e978a18c52f.json",
+					"name" : "test_remove",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ndp/Documents/FileHandler/build",
+		"source" : "/home/ndp/Documents/FileHandler"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

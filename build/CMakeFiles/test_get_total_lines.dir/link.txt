@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/test_get_total_lines.dir/unit_test/test_get_total_lines.c.o CMakeFiles/test_get_total_lines.dir/src/filehandle.c.o CMakeFiles/test_get_total_lines.dir/src/unity.c.o  -o test_get_total_lines 

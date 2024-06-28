@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/filehandle.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+stdint.h
+-
+
+/home/ndp/Documents/FileHandler/test/test.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stdint.h
+-
+assert.h
+-
+sys/resource.h
+-
+filehandle.h
+/home/ndp/Documents/FileHandler/test/filehandle.h
+

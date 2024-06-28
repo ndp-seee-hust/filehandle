@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/file_utils.h
+../include/filehandle.h
 stdio.h
 -
 stdlib.h
@@ -50,6 +50,30 @@ time.h
 time.h
 -
 
+/home/ndp/Documents/FileHandler/src/filehandle.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stdint.h
+-
+unistd.h
+-
+sys/resource.h
+-
+sys/mman.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+errno.h
+-
+filehandle.h
+/home/ndp/Documents/FileHandler/src/filehandle.h
+
 /home/ndp/Documents/FileHandler/unit_test/test_insert.c
 stdio.h
 -
@@ -57,8 +81,10 @@ stdlib.h
 -
 time.h
 -
-file_utils.h
-/home/ndp/Documents/FileHandler/unit_test/file_utils.h
+string.h
+-
+filehandle.h
+/home/ndp/Documents/FileHandler/unit_test/filehandle.h
 unity.h
 /home/ndp/Documents/FileHandler/unit_test/unity.h
 

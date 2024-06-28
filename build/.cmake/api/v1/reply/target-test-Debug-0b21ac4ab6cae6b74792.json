@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "test_insert"
+			"path" : "test"
 		}
 	],
 	"backtrace" : 1,
@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
@@ -59,12 +59,11 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				2
+				1
 			]
 		}
 	],
-	"id" : "test_insert::@6890427a1f51a3e7e1df",
+	"id" : "test::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -80,8 +79,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "test_insert",
-	"nameOnDisk" : "test_insert",
+	"name" : "test",
+	"nameOnDisk" : "test",
 	"paths" : 
 	{
 		"build" : ".",
@@ -94,8 +93,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				2
+				1
 			]
 		}
 	],
@@ -104,19 +102,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "unit_test/test_insert.c",
+			"path" : "test/test.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/file_utils.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/unity.c",
+			"path" : "src/filehandle.c",
 			"sourceGroupIndex" : 0
 		}
 	],

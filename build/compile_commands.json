@@ -6,8 +6,8 @@
 },
 {
   "directory": "/home/ndp/Documents/FileHandler/build",
-  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_fix.dir/src/file_utils.c.o   -c /home/ndp/Documents/FileHandler/src/file_utils.c",
-  "file": "/home/ndp/Documents/FileHandler/src/file_utils.c"
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_fix.dir/src/filehandle.c.o   -c /home/ndp/Documents/FileHandler/src/filehandle.c",
+  "file": "/home/ndp/Documents/FileHandler/src/filehandle.c"
 },
 {
   "directory": "/home/ndp/Documents/FileHandler/build",
@@ -21,8 +21,8 @@
 },
 {
   "directory": "/home/ndp/Documents/FileHandler/build",
-  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_remove.dir/src/file_utils.c.o   -c /home/ndp/Documents/FileHandler/src/file_utils.c",
-  "file": "/home/ndp/Documents/FileHandler/src/file_utils.c"
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_remove.dir/src/filehandle.c.o   -c /home/ndp/Documents/FileHandler/src/filehandle.c",
+  "file": "/home/ndp/Documents/FileHandler/src/filehandle.c"
 },
 {
   "directory": "/home/ndp/Documents/FileHandler/build",
@@ -36,12 +36,22 @@
 },
 {
   "directory": "/home/ndp/Documents/FileHandler/build",
-  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_insert.dir/src/file_utils.c.o   -c /home/ndp/Documents/FileHandler/src/file_utils.c",
-  "file": "/home/ndp/Documents/FileHandler/src/file_utils.c"
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_insert.dir/src/filehandle.c.o   -c /home/ndp/Documents/FileHandler/src/filehandle.c",
+  "file": "/home/ndp/Documents/FileHandler/src/filehandle.c"
 },
 {
   "directory": "/home/ndp/Documents/FileHandler/build",
   "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test_insert.dir/src/unity.c.o   -c /home/ndp/Documents/FileHandler/src/unity.c",
   "file": "/home/ndp/Documents/FileHandler/src/unity.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test.dir/test/test.c.o   -c /home/ndp/Documents/FileHandler/test/test.c",
+  "file": "/home/ndp/Documents/FileHandler/test/test.c"
+},
+{
+  "directory": "/home/ndp/Documents/FileHandler/build",
+  "command": "/usr/bin/cc  -I/home/ndp/Documents/FileHandler/include  -g   -std=gnu99 -o CMakeFiles/test.dir/src/filehandle.c.o   -c /home/ndp/Documents/FileHandler/src/filehandle.c",
+  "file": "/home/ndp/Documents/FileHandler/src/filehandle.c"
 }
 ]

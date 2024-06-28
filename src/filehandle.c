@@ -8,11 +8,98 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
-#include "file_utils.h"
+#include "filehandle.h"
 
 #define BUFFER_DATA_MOVE 1024
 
-int finsert_line(char* filename, int line_num, const char *buffer)
+int filehandle_get_total_lines(const char *filename)
+{
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+    
+    FILE *file = fopen(filename, "r");
+    if (!file)
+    {
+        perror("Error opening file");
+        return -1;
+    }
+
+    int lines = 0;
+    char ch;
+
+    while ((ch = fgetc(file)) != EOF)
+    {
+        if (ch == '\n')
+        {
+            lines++;
+        }
+    }
+
+    fseek(file, -1, SEEK_END);
+    if (fgetc(file) != '\n')
+    {
+        lines++;
+    }
+
+    fclose(file);
+    return lines;
+}
+
+int filehandle_get_line_content(const char *filename, int line_num, char *line_content)
+{
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+
+    FILE *file = fopen(filename, "r");
+    if (!file)
+    {
+        perror("Error opening file");
+        return -1;
+    }
+
+    if (!line_content)
+    {
+        perror("Error allocating memory");
+        fclose(file);
+        return -1;
+    }
+
+    int total_lines = filehandle_get_total_lines(filename);
+
+    if(line_num > total_lines)
+    {
+        return -1;
+    }
+
+    int current_line = 1;
+    long line_length = strlen(line_content);
+    while (fgets(line_content, line_length, file))
+    {
+        if (current_line == line_num)
+        {
+            fclose(file);
+            return 0;
+        }
+        current_line++;
+    }
+
+    fclose(file);
+    return 0;
+}
+
+int filehandle_insert(char* filename, int line_num, const char *buffer)
 {
 
     if (filename == NULL)
@@ -54,12 +141,13 @@ int finsert_line(char* filename, int line_num, const char *buffer)
         }
     }
 
-    if (current_line < line_num)
+    while (current_line < line_num)
     {
-        fclose(file);
-        return -1;
+        fputc('\n', file);
+        current_line++;
     }
 
+    insert_pos = ftell(file);
 
     fseek(file, insert_pos, SEEK_SET);
 
@@ -134,7 +222,7 @@ int finsert_line(char* filename, int line_num, const char *buffer)
 }
 
 
-int fremove_line(char* filename, int line_num)
+int filehandle_remove(char* filename, int line_num)
 {
     if (filename == NULL)
     {
@@ -232,7 +320,7 @@ int fremove_line(char* filename, int line_num)
     return 0;
 }
 
-int ffix_line(char* filename, int line_num, const char *buffer)
+int filehandle_fix(char* filename, int line_num, const char *buffer)
 {
     if (filename == NULL)
     {
@@ -363,7 +451,7 @@ int ffix_line(char* filename, int line_num, const char *buffer)
     return 0;
 }
 
-int mmap_finsert_line(char* filename, int line_num, const char *buffer)
+int filehandle_mmap_insert(char* filename, int line_num, const char *buffer)
 {
     if (filename == NULL)
     {
@@ -429,12 +517,12 @@ int mmap_finsert_line(char* filename, int line_num, const char *buffer)
             break;
     }
 
-    if (current_line < line_num) 
-    {
-        munmap(file_contents, file_size);
-        close(fd);
-        return -1;
-    }
+    // if (current_line < line_num) 
+    // {
+    //     munmap(file_contents, file_size);
+    //     close(fd);
+    //     return -1;
+    // }
 
     total_left_to_move = file_size - insert_pos;
 
@@ -454,7 +542,7 @@ int mmap_finsert_line(char* filename, int line_num, const char *buffer)
     return 0;
 }
 
-int mmap_fremove_line(char* filename, int line_num)
+int filehandle_mmap_remove(char* filename, int line_num)
 {
     if (filename == NULL)
     {
@@ -543,7 +631,7 @@ int mmap_fremove_line(char* filename, int line_num)
     return 0;
 }
 
-int mmap_ffix_line(char* filename, int line_num, const char *buffer)
+int filehandle_mmap_fix(char* filename, int line_num, const char *buffer)
 {
     
     if (filename == NULL)

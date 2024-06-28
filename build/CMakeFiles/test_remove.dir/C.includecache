@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/file_utils.h
+../include/filehandle.h
 stdio.h
 -
 stdlib.h
@@ -18,7 +18,7 @@ assert.h
 stdint.h
 -
 
-/home/ndp/Documents/FileHandler/src/file_utils.c
+/home/ndp/Documents/FileHandler/src/filehandle.c
 stdio.h
 -
 stdlib.h
@@ -39,6 +39,6 @@ fcntl.h
 -
 errno.h
 -
-file_utils.h
-/home/ndp/Documents/FileHandler/src/file_utils.h
+filehandle.h
+/home/ndp/Documents/FileHandler/src/filehandle.h
 

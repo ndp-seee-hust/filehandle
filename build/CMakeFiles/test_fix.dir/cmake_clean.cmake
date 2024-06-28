@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_fix.dir/src/file_utils.c.o"
+  "CMakeFiles/test_fix.dir/src/filehandle.c.o"
   "CMakeFiles/test_fix.dir/src/unity.c.o"
   "CMakeFiles/test_fix.dir/unit_test/test_fix.c.o"
   "test_fix"

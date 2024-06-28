@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/insert.dir/test/insert.c.o CMakeFiles/insert.dir/src/file_utils.c.o  -o insert 

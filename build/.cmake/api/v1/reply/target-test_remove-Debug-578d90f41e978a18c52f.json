@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "test_fix"
+			"path" : "test_remove"
 		}
 	],
 	"backtrace" : 1,
@@ -64,7 +64,7 @@
 			]
 		}
 	],
-	"id" : "test_fix::@6890427a1f51a3e7e1df",
+	"id" : "test_remove::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -80,8 +80,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "test_fix",
-	"nameOnDisk" : "test_fix",
+	"name" : "test_remove",
+	"nameOnDisk" : "test_remove",
 	"paths" : 
 	{
 		"build" : ".",
@@ -104,13 +104,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "unit_test/test_fix.c",
+			"path" : "unit_test/test_remove.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/file_utils.c",
+			"path" : "src/filehandle.c",
 			"sourceGroupIndex" : 0
 		},
 		{

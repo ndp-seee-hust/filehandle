@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/ndp/Documents/FileHandler/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -149,38 +149,54 @@ test_insert/fast:
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/build
 .PHONY : test_insert/fast
 
-src/file_utils.o: src/file_utils.c.o
+#=============================================================================
+# Target rules for targets named test
 
-.PHONY : src/file_utils.o
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+src/filehandle.o: src/filehandle.c.o
+
+.PHONY : src/filehandle.o
 
 # target to build an object file
-src/file_utils.c.o:
-	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/file_utils.c.o
-	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/file_utils.c.o
-	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/file_utils.c.o
-.PHONY : src/file_utils.c.o
+src/filehandle.c.o:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/filehandle.c.o
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/filehandle.c.o
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/filehandle.c.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/filehandle.c.o
+.PHONY : src/filehandle.c.o
 
-src/file_utils.i: src/file_utils.c.i
+src/filehandle.i: src/filehandle.c.i
 
-.PHONY : src/file_utils.i
+.PHONY : src/filehandle.i
 
 # target to preprocess a source file
-src/file_utils.c.i:
-	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/file_utils.c.i
-	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/file_utils.c.i
-	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/file_utils.c.i
-.PHONY : src/file_utils.c.i
+src/filehandle.c.i:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/filehandle.c.i
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/filehandle.c.i
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/filehandle.c.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/filehandle.c.i
+.PHONY : src/filehandle.c.i
 
-src/file_utils.s: src/file_utils.c.s
+src/filehandle.s: src/filehandle.c.s
 
-.PHONY : src/file_utils.s
+.PHONY : src/filehandle.s
 
 # target to generate assembly for a file
-src/file_utils.c.s:
-	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/file_utils.c.s
-	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/file_utils.c.s
-	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/file_utils.c.s
-.PHONY : src/file_utils.c.s
+src/filehandle.c.s:
+	$(MAKE) -f CMakeFiles/test_fix.dir/build.make CMakeFiles/test_fix.dir/src/filehandle.c.s
+	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/filehandle.c.s
+	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/filehandle.c.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/filehandle.c.s
+.PHONY : src/filehandle.c.s
 
 src/unity.o: src/unity.c.o
 
@@ -214,6 +230,33 @@ src/unity.c.s:
 	$(MAKE) -f CMakeFiles/test_remove.dir/build.make CMakeFiles/test_remove.dir/src/unity.c.s
 	$(MAKE) -f CMakeFiles/test_insert.dir/build.make CMakeFiles/test_insert.dir/src/unity.c.s
 .PHONY : src/unity.c.s
+
+test/test.o: test/test.c.o
+
+.PHONY : test/test.o
+
+# target to build an object file
+test/test.c.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/test.c.o
+.PHONY : test/test.c.o
+
+test/test.i: test/test.c.i
+
+.PHONY : test/test.i
+
+# target to preprocess a source file
+test/test.c.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/test.c.i
+.PHONY : test/test.c.i
+
+test/test.s: test/test.c.s
+
+.PHONY : test/test.s
+
+# target to generate assembly for a file
+test/test.c.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/test.c.s
+.PHONY : test/test.c.s
 
 unit_test/test_fix.o: unit_test/test_fix.c.o
 
@@ -302,17 +345,21 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test_fix"
 	@echo "... test_remove"
 	@echo "... test_insert"
-	@echo "... src/file_utils.o"
-	@echo "... src/file_utils.i"
-	@echo "... src/file_utils.s"
+	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... src/filehandle.o"
+	@echo "... src/filehandle.i"
+	@echo "... src/filehandle.s"
 	@echo "... src/unity.o"
 	@echo "... src/unity.i"
 	@echo "... src/unity.s"
+	@echo "... test/test.o"
+	@echo "... test/test.i"
+	@echo "... test/test.s"
 	@echo "... unit_test/test_fix.o"
 	@echo "... unit_test/test_fix.i"
 	@echo "... unit_test/test_fix.s"

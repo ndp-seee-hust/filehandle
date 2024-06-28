@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "file_utils.h"
+#include "filehandle.h"
 #include "unity.h"
 
 
@@ -42,115 +42,117 @@ void tearDown(void)
 }
 
 /*
-    TEST CASES FOR fremove_line()
+    TEST CASES FOR filehandle_remove()
 */
 
-void test_fremove_line_FilenameIsNull(void)
+void test_filehandle_remove_FilenameIsNull(void)
 {
-    int result = fremove_line(NULL, 1);
+    int result = filehandle_remove(NULL, 1);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_fremove_line_LineNumIsZero(void)
+void test_filehandle_remove_LineNumIsZero(void)
 {
-    int result = fremove_line(filename, 0);
+    int result = filehandle_remove(filename, 0);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_fremove_line_LineNumIsNegative(void)
+void test_filehandle_remove_LineNumIsNegative(void)
 {
-    int result = fremove_line(filename, -1);
+    int result = filehandle_remove(filename, -1);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_fremove_line_FileDoesNotExist(void)
+void test_filehandle_remove_FileDoesNotExist(void)
 {
-    int result = fremove_line("NonExistFile.txt", 1);
+    int result = filehandle_remove("NonExistFile.txt", 1);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_fremove_line_LineDoesNotExist(void)
+void test_filehandle_remove_LineDoesNotExist(void)
 {
-    int result = fremove_line(filename, 200000);
+    int total_lines = filehandle_get_total_lines(filename);
+    int result = filehandle_remove(filename, total_lines+2);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_fremove_line_RemoveExistingLine(void)
+void test_filehandle_remove_RemoveExistingLine(void)
 {
 
-    int result = fremove_line(filename, 2);
+    int result = filehandle_remove(filename, 2);
     TEST_ASSERT_EQUAL_INT(0, result);
 
 }
 
-void test_fremove_line_Performance(void)
+void test_filehandle_remove_Performance(void)
 {
     clock_t start_time, end_time;
     double cpu_time_used;
     
     start_time = clock();
-    int result = fremove_line(filename, 100000);
+    int result = filehandle_remove(filename, 100000);
     end_time = clock();
     
     cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
     
-    printf("Time taken to execute fremove_line: %f seconds\n", cpu_time_used);
+    printf("Time taken to execute filehandle_remove: %f seconds\n", cpu_time_used);
     TEST_ASSERT_EQUAL_INT(0, result);
 }
 
 /*
-    TEST CASES FOR mmap_fremove_line()
+    TEST CASES FOR filehandle_mmap_remove()
 */
-void test_mmap_fremove_line_FilenameIsNull(void)
+void test_filehandle_mmap_remove_FilenameIsNull(void)
 {
-    int result = mmap_fremove_line(NULL, 1);
+    int result = filehandle_mmap_remove(NULL, 1);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_mmap_fremove_line_LineNumIsZero(void)
+void test_filehandle_mmap_remove_LineNumIsZero(void)
 {
-    int result = mmap_fremove_line(filename, 0);
+    int result = filehandle_mmap_remove(filename, 0);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_mmap_fremove_line_LineNumIsNegative(void)
+void test_filehandle_mmap_remove_LineNumIsNegative(void)
 {
-    int result = mmap_fremove_line(filename, -1);
+    int result = filehandle_mmap_remove(filename, -1);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_mmap_fremove_line_FileDoesNotExist(void)
+void test_filehandle_mmap_remove_FileDoesNotExist(void)
 {
-    int result = mmap_fremove_line("NonExistFile.txt", 1);
+    int result = filehandle_mmap_remove("NonExistFile.txt", 1);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_mmap_fremove_line_LineDoesNotExist(void)
+void test_filehandle_mmap_remove_LineDoesNotExist(void)
 {
-    int result = mmap_fremove_line(filename, 200000);
+    int total_lines = filehandle_get_total_lines(filename);
+    int result = filehandle_mmap_remove(filename, total_lines+2);
     TEST_ASSERT_EQUAL_INT(-1, result);
 }
 
-void test_mmap_fremove_line_RemoveExistingLine(void)
+void test_filehandle_mmap_remove_RemoveExistingLine(void)
 {
 
-    int result = mmap_fremove_line(filename, 2);
+    int result = filehandle_mmap_remove(filename, 2);
     TEST_ASSERT_EQUAL_INT(0, result);
 
 }
 
-void test_mmap_fremove_line_Performance(void)
+void test_filehandle_mmap_remove_Performance(void)
 {
     clock_t start_time, end_time;
     double cpu_time_used;
     
     start_time = clock();
-    int result = mmap_fremove_line(filename, 100000);
+    int result = filehandle_mmap_remove(filename, 100000);
     end_time = clock();
     
     cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
     
-    printf("Time taken to execute mmap_fremove_line: %f seconds\n", cpu_time_used);
+    printf("Time taken to execute filehandle_mmap_remove: %f seconds\n", cpu_time_used);
     TEST_ASSERT_EQUAL_INT(0, result);
 }
 
@@ -158,21 +160,21 @@ int main(void)
 {
     UNITY_BEGIN();
     
-    RUN_TEST(test_fremove_line_FilenameIsNull);
-    RUN_TEST(test_fremove_line_LineNumIsZero);
-    RUN_TEST(test_fremove_line_LineNumIsNegative);
-    RUN_TEST(test_fremove_line_FileDoesNotExist);
-    RUN_TEST(test_fremove_line_LineDoesNotExist);
-    RUN_TEST(test_fremove_line_RemoveExistingLine);
-    RUN_TEST(test_fremove_line_Performance);
+    RUN_TEST(test_filehandle_remove_FilenameIsNull);
+    RUN_TEST(test_filehandle_remove_LineNumIsZero);
+    RUN_TEST(test_filehandle_remove_LineNumIsNegative);
+    RUN_TEST(test_filehandle_remove_FileDoesNotExist);
+    RUN_TEST(test_filehandle_remove_LineDoesNotExist);
+    RUN_TEST(test_filehandle_remove_RemoveExistingLine);
+    RUN_TEST(test_filehandle_remove_Performance);
 
-    RUN_TEST(test_mmap_fremove_line_FilenameIsNull);
-    RUN_TEST(test_mmap_fremove_line_LineNumIsZero);
-    RUN_TEST(test_mmap_fremove_line_LineNumIsNegative);
-    RUN_TEST(test_mmap_fremove_line_FileDoesNotExist);
-    RUN_TEST(test_mmap_fremove_line_LineDoesNotExist);
-    RUN_TEST(test_mmap_fremove_line_RemoveExistingLine);
-    RUN_TEST(test_mmap_fremove_line_Performance);
+    RUN_TEST(test_filehandle_mmap_remove_FilenameIsNull);
+    RUN_TEST(test_filehandle_mmap_remove_LineNumIsZero);
+    RUN_TEST(test_filehandle_mmap_remove_LineNumIsNegative);
+    RUN_TEST(test_filehandle_mmap_remove_FileDoesNotExist);
+    RUN_TEST(test_filehandle_mmap_remove_LineDoesNotExist);
+    RUN_TEST(test_filehandle_mmap_remove_RemoveExistingLine);
+    RUN_TEST(test_filehandle_mmap_remove_Performance);
 
 
     return UNITY_END();

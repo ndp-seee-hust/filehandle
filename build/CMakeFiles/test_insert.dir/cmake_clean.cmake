@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_insert.dir/src/file_utils.c.o"
+  "CMakeFiles/test_insert.dir/src/filehandle.c.o"
   "CMakeFiles/test_insert.dir/src/unity.c.o"
   "CMakeFiles/test_insert.dir/unit_test/test_insert.c.o"
   "test_insert"

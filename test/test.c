@@ -1,31 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <string.h>
-#include <stdint.h>
-#include <assert.h>
-#include <sys/resource.h>
 #include "filehandle.h"
+#include "unity.h"
+
 
 
 int main() 
 {
-
     char *filename = "/home/ndp/Documents/FileHandler/test_file/test.txt";
-    char *insert_text = "TEST INSERT";
-    int line = 2;
-    
-    char *line_content = malloc(1000);
-    int ret = filehandle_get_line_content(filename, line, line_content);
-    
-    if(ret == 0)
-    { 
-        printf("%s", line_content);
-    }
+    int line_num = 10;
+    char *insert_text = "test insert api file handle";
+    int ret = filehandle_insert_v2(filename, line_num, insert_text);
+    if(!ret)
+    {
+        printf("insert successfully!\n");
 
+    }
     else
     {
-        printf("Get line content fail!\n");
+        printf("Failed!\n");
     }
-   
-    free(line_content);
+    
+    
+    
 }

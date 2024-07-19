@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/_test_insert.dir/unit_test/test_insert.c.o CMakeFiles/_test_insert.dir/src/filehandle.c.o CMakeFiles/_test_insert.dir/src/unity.c.o  -o _test_insert 

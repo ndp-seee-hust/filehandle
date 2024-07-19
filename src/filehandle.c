@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <unistd.h>
+#include <time.h>
 #include <sys/resource.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
@@ -11,6 +12,7 @@
 #include "filehandle.h"
 
 #define BUFFER_DATA_MOVE 1024
+#define BLOCK_SIZE 4096
 
 int filehandle_get_total_lines(const char *filename)
 {
@@ -100,6 +102,7 @@ int filehandle_get_line_content(const char *filename, int line_num, char *line_c
 
 int filehandle_insert(char* filename, int line_num, const char *buffer)
 {
+    clock_t start_time = clock();
 
     if (filename == NULL)
     {
@@ -139,14 +142,6 @@ int filehandle_insert(char* filename, int line_num, const char *buffer)
             insert_pos = ftell(file);
         }
     }
-
-    while (current_line < line_num)
-    {
-        fputc('\n', file);
-        current_line++;
-    }
-
-    insert_pos = ftell(file);
 
     fseek(file, insert_pos, SEEK_SET);
 
@@ -216,7 +211,99 @@ int filehandle_insert(char* filename, int line_num, const char *buffer)
         return ferror(file);
     }
 
+    sleep(100000);
     fclose(file);
+    clock_t end_time = clock();
+    double time_taken = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute insert function: %f mini seconds\n", time_taken*1000);
+    
+    return 0;
+}
+
+int filehandle_insert_v2(char* filename, int line_num, const char *buffer)
+{
+    clock_t start_time = clock();
+
+    if (filename == NULL)
+    {
+        fprintf(stderr, "Error: filename is NULL\n");
+        return -1;
+    }
+
+    if (line_num <= 0)
+    {
+        fprintf(stderr, "Error: line_num must be greater than 0\n");
+        return -1;
+    }
+    
+    if (buffer == NULL)
+    {
+        fprintf(stderr, "Error: buffer is NULL\n");
+        return -1;
+    }
+   
+    FILE *file = fopen(filename, "r+");
+    if (!file)
+    {
+        perror("Error opening file");
+        return -1;
+    }
+
+    int current_line = 1;
+    long insert_pos = 0;
+    char ch;
+    
+    while (current_line < line_num && (ch = fgetc(file)) != EOF)
+    {
+        if (ch == '\n')
+        {
+            current_line++;
+            insert_pos = ftell(file);
+        }
+    }
+
+    fseek(file, insert_pos, SEEK_SET);
+    long total_left_to_move = 0;
+    while (fgetc(file) != EOF) 
+    {
+        total_left_to_move++;
+    }
+    fseek(file, insert_pos, SEEK_SET);
+    
+    char *move_buffer = (char *)malloc(total_left_to_move);
+    if (move_buffer == NULL)
+    {
+        fclose(file);
+        fprintf(stderr, "Error: unable to allocate memory\n");
+        return -1;
+    }
+    
+    fread(move_buffer, 1, total_left_to_move, file);
+    if (ferror(file))
+    {
+        fclose(file);
+        free(move_buffer);
+        return ferror(file);
+    }
+    fseek(file, insert_pos, SEEK_SET);
+    fwrite(buffer, 1, strlen(buffer), file);
+    fwrite("\n",1,1,file);
+    fwrite(move_buffer, 1, total_left_to_move, file);
+    
+    if (ferror(file))
+    {
+        fclose(file);
+        free(move_buffer);
+        return ferror(file);
+    }
+    sleep(100000);
+    free(move_buffer);
+    fclose(file);
+
+    clock_t end_time = clock();
+    double time_taken = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute insert function: %f mini seconds\n", time_taken * 1000);
+    
     return 0;
 }
 
@@ -450,8 +537,11 @@ int filehandle_fix(char* filename, int line_num, const char *buffer)
     return 0;
 }
 
+
 int filehandle_mmap_insert(char* filename, int line_num, const char *buffer)
 {
+    clock_t start_time = clock();
+
     if (filename == NULL)
     {
         fprintf(stderr, "Error: filename is NULL\n");
@@ -476,10 +566,8 @@ int filehandle_mmap_insert(char* filename, int line_num, const char *buffer)
     size_t file_size;
     int current_line = 1;
     off_t insert_pos = 0;
-    long total_left_to_move = 0;
-    size_t amount_to_grow = strlen(buffer);
-
-
+    long total_data_to_move = 0;
+    size_t insert_text_length = strlen(buffer);
 
     fd = open(filename, O_RDWR);
     if (fd == -1) 
@@ -516,20 +604,15 @@ int filehandle_mmap_insert(char* filename, int line_num, const char *buffer)
             break;
     }
 
-    // if (current_line < line_num) 
-    // {
-    //     munmap(file_contents, file_size);
-    //     close(fd);
-    //     return -1;
-    // }
+    total_data_to_move = file_size - insert_pos;
 
-    total_left_to_move = file_size - insert_pos;
+    memmove(file_contents + insert_pos + insert_text_length + 1, file_contents + insert_pos, total_data_to_move);
 
-    memmove(file_contents + insert_pos + amount_to_grow + 1, file_contents + insert_pos, total_left_to_move);
+    memcpy(file_contents + insert_pos, buffer, insert_text_length);
+    file_contents[insert_pos + insert_text_length] = '\n';
 
-    memcpy(file_contents + insert_pos, buffer, amount_to_grow);
-    file_contents[insert_pos + amount_to_grow] = '\n';
-
+    
+    sleep(100000);
     if (munmap(file_contents, file_size) == -1) 
     {
         perror("munmap");
@@ -538,6 +621,9 @@ int filehandle_mmap_insert(char* filename, int line_num, const char *buffer)
     }
 
     close(fd);
+    clock_t end_time = clock();
+    double time_taken = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute insert function: %f mini seconds\n", time_taken*1000);
     return 0;
 }
 
@@ -757,3 +843,4 @@ int filehandle_mmap_fix(char* filename, int line_num, const char *buffer)
     close(fd);
     return 0;
 }
+

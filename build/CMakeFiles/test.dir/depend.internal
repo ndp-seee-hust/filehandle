@@ -6,4 +6,6 @@ CMakeFiles/test.dir/src/filehandle.c.o
  /home/ndp/Documents/FileHandler/src/filehandle.c
 CMakeFiles/test.dir/test/test.c.o
  ../include/filehandle.h
+ ../include/unity.h
+ ../include/unity_internals.h
  /home/ndp/Documents/FileHandler/test/test.c

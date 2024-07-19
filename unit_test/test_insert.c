@@ -73,7 +73,7 @@ void test_filehandle_insert_Performance(void)
     double cpu_time_used;
     
     start_time = clock();
-    int result = filehandle_insert(filename, 100000, "Performance test line");
+    int result = filehandle_insert(filename, 120000, "Performance test line");
     end_time = clock();
     
     cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
@@ -165,7 +165,7 @@ void test_filehandle_mmap_insert_Performance(void)
     double cpu_time_used;
     
     start_time = clock();
-    int result = filehandle_mmap_insert(filename, 2, "Performance test line");
+    int result = filehandle_mmap_insert(filename, 120000, "Performance test line");
     end_time = clock();
     
     cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
